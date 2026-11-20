@@ -1,0 +1,1708 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --negro: #050505;
+    --negro-2: #0d080a;
+    --negro-3: #161012;
+
+    --vino: #5c0a16;
+    --rojo: #8b1e2d;
+    --rojo-claro: #b52a3a;
+
+    --dorado: #c9a86a;
+    --dorado-claro: #e2c98e;
+
+    --crema: #e8dcc8;
+    --gris: #a99f96;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 20%, #241116 0%, transparent 35%),
+        linear-gradient(to bottom, #050505, #100709, #050505);
+
+    color: var(--crema);
+
+    font-family: "Playfair Display", serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.stars,
+.stars::before,
+.stars::after {
+    position: fixed;
+
+    width: 3px;
+    height: 3px;
+
+    background: var(--crema);
+
+    border-radius: 50%;
+
+    content: "";
+
+    opacity: 0.6;
+
+    z-index: -1;
+}
+
+.stars {
+    top: 20%;
+    left: 10%;
+
+    box-shadow:
+        80px 40px var(--crema),
+        180px 120px var(--crema),
+        300px 60px var(--crema),
+        420px 180px var(--crema),
+        520px 90px var(--crema),
+        650px 200px var(--crema),
+        750px 70px var(--crema),
+        900px 150px var(--crema),
+        1000px 40px var(--crema),
+        1100px 220px var(--crema),
+        1200px 100px var(--crema);
+
+    animation: estrellas 5s infinite alternate;
+}
+
+@keyframes estrellas {
+
+    from {
+        opacity: 0.25;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+
+/* =====================================================
+   LUNA
+===================================================== */
+
+.moon {
+    position: absolute;
+
+    top: 80px;
+    right: 8%;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fff8e8,
+            #d8cbb4 60%,
+            #a99b83
+        );
+
+    box-shadow:
+        0 0 30px rgba(232, 220, 200, 0.25),
+        0 0 80px rgba(201, 168, 106, 0.1);
+
+    opacity: 0.85;
+
+    z-index: -1;
+}
+
+.moon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: #090506;
+
+    top: -18px;
+    left: 28px;
+}
+
+
+/* =====================================================
+   MURCIÉLAGOS
+===================================================== */
+
+.bat {
+    position: fixed;
+
+    font-size: 28px;
+
+    z-index: 5;
+
+    opacity: 0.6;
+
+    pointer-events: none;
+}
+
+.bat-1 {
+    top: 25%;
+    left: -50px;
+
+    animation: volar1 18s linear infinite;
+}
+
+.bat-2 {
+    top: 45%;
+    left: -50px;
+
+    animation: volar2 23s linear infinite 5s;
+}
+
+.bat-3 {
+    top: 70%;
+    left: -50px;
+
+    animation: volar3 20s linear infinite 10s;
+}
+
+@keyframes volar1 {
+
+    0% {
+        transform: translateX(-50px) translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateX(55vw) translateY(-80px) rotate(8deg);
+    }
+
+    100% {
+        transform: translateX(110vw) translateY(20px) rotate(-5deg);
+    }
+}
+
+@keyframes volar2 {
+
+    0% {
+        transform: translateX(-50px);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(100px);
+    }
+
+    100% {
+        transform: translateX(110vw) translateY(-50px);
+    }
+}
+
+@keyframes volar3 {
+
+    0% {
+        transform: translateX(-50px);
+    }
+
+    50% {
+        transform: translateX(60vw) translateY(-120px);
+    }
+
+    100% {
+        transform: translateX(110vw);
+    }
+}
+
+
+/* =====================================================
+   HERO / PORTADA
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 40px 20px;
+
+    border-bottom: 1px solid rgba(201, 168, 106, 0.15);
+}
+
+.hero-content {
+
+    max-width: 850px;
+
+    animation: aparecer 1.5s ease;
+}
+
+.small-title {
+
+    color: var(--dorado);
+
+    font-size: 0.9rem;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    font-weight: 500;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 0 20px rgba(139, 30, 45, 0.4);
+}
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--rojo-claro);
+
+    font-style: italic;
+
+    font-size: 0.7em;
+
+    margin-top: 15px;
+}
+
+.subtitle {
+
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    color: var(--gris);
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   VELAS
+===================================================== */
+
+.candle {
+
+    position: absolute;
+
+    font-size: 55px;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255, 150, 50, 0.4));
+
+    animation: vela 1.5s infinite alternate;
+}
+
+.candle-left {
+
+    bottom: 50px;
+    left: 10%;
+}
+
+.candle-right {
+
+    bottom: 50px;
+    right: 10%;
+}
+
+@keyframes vela {
+
+    from {
+        transform: rotate(-2deg);
+    }
+
+    to {
+        transform: rotate(2deg) scale(1.03);
+    }
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.btn-corazon,
+button {
+
+    border: 1px solid var(--dorado);
+
+    background:
+        linear-gradient(
+            135deg,
+            #16090c,
+            #310b12
+        );
+
+    color: var(--crema);
+
+    padding: 15px 30px;
+
+    font-family: "Cinzel", serif;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    box-shadow:
+        0 0 20px rgba(139, 30, 45, 0.15);
+}
+
+.btn-corazon:hover,
+button:hover {
+
+    background: var(--vino);
+
+    color: white;
+
+    box-shadow:
+        0 0 30px rgba(139, 30, 45, 0.5);
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    padding: 18px 25px;
+
+    background: rgba(5, 5, 5, 0.88);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.navbar a {
+
+    color: var(--gris);
+
+    text-decoration: none;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+
+    color: var(--dorado-claro);
+
+    text-shadow:
+        0 0 10px rgba(201, 168, 106, 0.5);
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.seccion {
+
+    min-height: 80vh;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 120px 25px;
+
+    text-align: center;
+}
+
+.seccion-subtitulo {
+
+    color: var(--dorado);
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 0.75rem;
+
+    margin-bottom: 15px;
+}
+
+.seccion h2 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(2.3rem, 5vw, 4rem);
+
+    font-weight: 500;
+
+    margin-bottom: 60px;
+
+    color: var(--crema);
+}
+
+.seccion h2::after {
+
+    content: "✦";
+
+    display: block;
+
+    color: var(--rojo-claro);
+
+    font-size: 1rem;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.carta {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21191a,
+            #140d0e
+        );
+
+    border: 1px solid rgba(201, 168, 106, 0.35);
+
+    padding: 10px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.7),
+        0 0 50px rgba(92, 10, 22, 0.12);
+}
+
+.carta-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 20px 25px;
+
+    border-bottom: 1px solid rgba(201, 168, 106, 0.25);
+
+    color: var(--dorado);
+
+    font-family: "Cinzel", serif;
+}
+
+.carta-contenido {
+
+    text-align: left;
+
+    padding: 45px;
+
+    line-height: 2;
+
+    color: #d8cec2;
+
+    font-size: 1.05rem;
+}
+
+.carta-contenido p {
+
+    margin-bottom: 22px;
+}
+
+.firma {
+
+    text-align: right;
+
+    color: var(--dorado-claro);
+
+    font-family: "Cinzel", serif;
+
+    margin-top: 40px;
+}
+
+
+/* =====================================================
+   GALERÍA
+===================================================== */
+
+.galeria {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 30px;
+}
+
+.foto {
+
+    background: #11090b;
+
+    padding: 12px;
+
+    border: 1px solid rgba(201, 168, 106, 0.25);
+
+    transition: 0.5s;
+
+    transform: rotate(-1deg);
+}
+
+.foto:nth-child(even) {
+
+    transform: rotate(1deg);
+}
+
+.foto:hover {
+
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.02);
+
+    border-color: var(--dorado);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.foto img {
+
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(20%)
+        contrast(1.05);
+
+    transition: 0.5s;
+}
+
+.foto:hover img {
+
+    filter:
+        grayscale(0%)
+        contrast(1.1);
+}
+
+.foto p {
+
+    padding: 15px 5px 8px;
+
+    color: var(--dorado);
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   AVENTURAS
+===================================================== */
+
+.timeline {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 1px;
+
+    height: 100%;
+
+    background: var(--dorado);
+
+    opacity: 0.4;
+}
+
+.aventura {
+
+    width: 45%;
+
+    padding: 25px;
+
+    margin-bottom: 70px;
+
+    background: rgba(20, 10, 12, 0.8);
+
+    border: 1px solid rgba(201, 168, 106, 0.2);
+
+    position: relative;
+}
+
+.aventura:nth-child(odd) {
+
+    margin-right: auto;
+
+    text-align: right;
+}
+
+.aventura:nth-child(even) {
+
+    margin-left: auto;
+
+    text-align: left;
+}
+
+.aventura span {
+
+    color: var(--rojo-claro);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.5rem;
+}
+
+.aventura h3 {
+
+    margin: 10px 0;
+
+    color: var(--dorado-claro);
+
+    font-family: "Cinzel", serif;
+}
+
+.aventura p {
+
+    color: var(--gris);
+
+    line-height: 1.7;
+}
+
+
+
+.canciones-section {
+    text-align: center;
+}
+
+.canciones-descripcion {
+    max-width: 550px;
+    margin: 20px auto 35px;
+    line-height: 1.8;
+    color: var(--gris);
+}
+
+.cancion-card {
+    position: relative;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    background: linear-gradient(
+        145deg,
+        rgba(45, 10, 22, 0.95),
+        rgba(8, 8, 12, 0.98)
+    );
+    border: 1px solid rgba(201, 168, 106, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(100, 0, 25, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cancion-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--dorado);
+}
+
+.cancion-decoracion {
+    color: var(--dorado);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.cancion-etiqueta {
+    display: block;
+    color: var(--dorado);
+    font-family: "Cinzel", serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.cancion-card h3 {
+    color: var(--crema);
+    font-family: "Cinzel", serif;
+    margin-bottom: 15px;
+}
+
+.cancion-mensaje {
+    color: var(--gris);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.spotify-container {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 106, 0.25);
+    border-radius: 12px;
+    background: #121212;
+}
+
+.spotify-container iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+.cancion-dedicatoria {
+    margin-top: 25px;
+    margin-bottom: 0;
+    color: var(--dorado);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .cancion-card {
+        margin: 0 12px;
+        padding: 24px 16px;
+    }
+}
+
+
+/* =====================================================
+   HIJOS
+===================================================== */
+
+.hijos-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+}
+
+.hijo {
+
+    width: 260px;
+
+    padding: 35px;
+
+    background: #10090b;
+
+    border: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.hijo-icon {
+
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+}
+
+.hijo h3 {
+
+    font-family: "Cinzel", serif;
+
+    color: var(--dorado);
+}
+
+.hijo p {
+
+    margin-top: 10px;
+
+    color: var(--gris);
+}
+
+
+/* =====================================================
+   APODOS
+===================================================== */
+
+.apodos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.apodos span {
+    padding: 14px 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1c0b0f,
+            #0b0708
+        );
+
+    border: 1px solid rgba(201, 168, 106, 0.4);
+
+    color: #e8dcc8;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 1px;
+
+    border-radius: 2px;
+
+    transition: all 0.4s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.apodos span:hover {
+
+    color: #ffffff;
+
+    border-color: #c9a86a;
+
+    background: #5c0a16;
+
+    transform:
+        translateY(-6px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 10px 25px rgba(92, 10, 22, 0.5);
+}
+
+
+/* ===== CAZADORA DE RECUERDOS (JUEGO) ===== */
+
+/* Importante: asegura que lo oculto con hidden se oculte de verdad */
+[hidden] {
+    display: none !important;
+}
+
+.juego-section {
+    text-align: center;
+}
+
+.juego-intro {
+    max-width: 580px;
+    margin: 20px auto 35px;
+    color: var(--gris);
+    line-height: 1.8;
+}
+
+.juego-card {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 35px;
+    background: linear-gradient(
+        145deg,
+        rgba(43, 9, 22, 0.97),
+        rgba(8, 8, 12, 0.98)
+    );
+    border: 1px solid rgba(201, 168, 106, 0.45);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(100, 0, 25, 0.2);
+}
+
+.juego-card h3 {
+    color: var(--crema);
+    font-family: "Cinzel", serif;
+    font-size: 1.4rem;
+    margin: 20px 0;
+}
+
+.juego-card p {
+    color: var(--gris);
+    line-height: 1.8;
+}
+
+.juego-luna {
+    font-size: 42px;
+    color: var(--dorado);
+    margin-bottom: 12px;
+}
+
+.juego-sello {
+    display: block;
+    color: var(--dorado);
+    font-family: "Cinzel", serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin: 15px 0;
+}
+
+.juego-boton {
+    margin-top: 20px;
+    padding: 13px 24px;
+    color: var(--crema);
+    background: #510d23;
+    border: 1px solid var(--dorado);
+    font-family: "Cinzel", serif;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.juego-boton:hover {
+    background: #761531;
+    transform: translateY(-2px);
+}
+
+.juego-progreso {
+    margin: 20px 0 30px;
+}
+
+.juego-progreso-texto {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--dorado);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.juego-barra {
+    width: 100%;
+    height: 7px;
+    background: #24131a;
+    border: 1px solid rgba(201, 168, 106, 0.25);
+    overflow: hidden;
+}
+
+#juegoBarraRelleno {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #650d2a, #c9a86a);
+    transition: width 0.4s ease;
+}
+
+.juego-opciones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.juego-opcion {
+    padding: 14px;
+    color: var(--crema);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(201, 168, 106, 0.3);
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.juego-opcion:hover:not(:disabled) {
+    background: rgba(120, 0, 35, 0.3);
+    border-color: var(--dorado);
+}
+
+.juego-opcion:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.juego-opcion.correcta {
+    border-color: #78a878;
+    background: rgba(40, 100, 50, 0.15);
+}
+
+.juego-opcion.incorrecta {
+    border-color: #a94b60;
+    background: rgba(130, 10, 35, 0.2);
+}
+
+.juego-mensaje {
+    min-height: 28px;
+    margin-top: 18px;
+}
+
+.juego-tesoro {
+    font-size: 65px;
+    color: var(--dorado);
+    animation: tesoroLatido 1.8s ease-in-out infinite;
+}
+
+.juego-carta-final {
+    padding: 22px;
+    margin-top: 25px;
+    border: 1px solid rgba(201, 168, 106, 0.35);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--crema);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    line-height: 1.9;
+}
+
+.juego-firma {
+    text-align: right;
+    color: var(--dorado) !important;
+    margin-top: 18px;
+}
+
+@keyframes tesoroLatido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@media (max-width: 600px) {
+    .juego-card {
+        padding: 24px 17px;
+        margin: 0 10px;
+    }
+
+    .juego-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .juego-tesoro {
+        animation: none;
+    }
+
+    #juegoBarraRelleno {
+        transition: none;
+    }
+}
+
+/* =====================================================
+   RAZONES
+===================================================== */
+
+.razon {
+
+    max-width: 750px;
+
+    margin: 25px auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    text-align: left;
+
+    background: rgba(20, 10, 12, 0.7);
+
+    border-left: 2px solid var(--rojo);
+}
+
+.numero {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.5rem;
+
+    color: var(--dorado);
+
+    min-width: 40px;
+}
+
+.razon p {
+
+    color: var(--crema);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    min-height: 50vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #250c12,
+            #050505 70%
+        );
+
+    border-top: 1px solid rgba(201, 168, 106, 0.15);
+}
+
+.footer-moon {
+
+    font-size: 5rem;
+
+    color: var(--dorado);
+
+    margin-bottom: 20px;
+
+    animation: luna 4s infinite alternate;
+}
+
+@keyframes luna {
+
+    from {
+        text-shadow: 0 0 10px rgba(201, 168, 106, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 35px rgba(201, 168, 106, 0.5);
+    }
+}
+
+footer h2 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(1.8rem, 4vw, 3rem);
+
+    color: var(--crema);
+}
+
+footer p {
+
+    margin-top: 20px;
+
+    color: var(--dorado);
+
+    font-style: italic;
+}
+
+.footer-bats {
+
+    margin-top: 40px;
+
+    font-size: 1.5rem;
+
+    letter-spacing: 20px;
+
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .moon {
+
+        width: 110px;
+        height: 110px;
+
+        top: 60px;
+        right: -20px;
+    }
+
+    .moon::after {
+
+        width: 110px;
+        height: 110px;
+
+        left: 20px;
+    }
+
+    .navbar {
+
+        gap: 12px;
+
+        padding: 15px;
+    }
+
+    .navbar a {
+
+        font-size: 0.65rem;
+    }
+
+    .candle {
+
+        font-size: 35px;
+    }
+
+    .candle-left {
+
+        left: 3%;
+    }
+
+    .candle-right {
+
+        right: 3%;
+    }
+
+    .carta-contenido {
+
+        padding: 25px 20px;
+
+        font-size: 0.95rem;
+    }
+
+    .timeline::before {
+
+        left: 10px;
+    }
+
+    .aventura,
+    .aventura:nth-child(odd),
+    .aventura:nth-child(even) {
+
+        width: 90%;
+
+        margin-left: 30px;
+
+        margin-right: 0;
+
+        text-align: left;
+    }
+
+    .razon {
+
+        padding: 20px;
+
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .hero {
+
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+
+        font-size: 1rem;
+    }
+
+    .seccion {
+
+        padding: 90px 18px;
+    }
+
+    .seccion h2 {
+
+        font-size: 2.2rem;
+
+        margin-bottom: 40px;
+    }
+
+    .foto img {
+
+        height: 250px;
+    }
+
+    .footer-bats {
+
+        letter-spacing: 8px;
+    }
+}
+/* FOTOS DE NUESTROS PEQUEÑOS */
+
+.hijo {
+    width: 260px;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.hijo:hover {
+    transform: translateY(-8px);
+    border-color: var(--dorado);
+}
+
+.hijo-foto {
+    width: 100%;
+    height: 230px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 106, 0.3);
+}
+
+.hijo-foto img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hijo:hover .hijo-foto img {
+    transform: scale(1.06);
+}
+
+.hijo p {
+    line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+    .hijo {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+/* =========================================
+   LUGARES QUE NOS MARCARON
+   Estética vampírica romántica
+========================================= */
+
+.seccion-lugares {
+    position: relative;
+    padding: 100px 7%;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(92, 10, 22, 0.18),
+            transparent 65%
+        ),
+        #050505;
+    color: #e8dcc8;
+}
+
+/* Encabezado */
+
+.lugares-encabezado {
+    max-width: 750px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.lugares-etiqueta {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #c9a86a;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+}
+
+.lugares-encabezado h2 {
+    margin: 0 0 22px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.lugares-encabezado h2 span {
+    color: #a52a3a;
+    font-style: italic;
+}
+
+.lugares-encabezado > p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #b9ada4;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* Cuadrícula de tarjetas */
+
+.lugares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1250px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+
+/* Tarjetas */
+
+.lugar-card {
+    min-width: 0;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #151012,
+        #090708
+    );
+    border: 1px solid rgba(201, 168, 106, 0.18);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.lugar-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 168, 106, 0.55);
+    box-shadow: 0 20px 45px rgba(92, 10, 22, 0.2);
+}
+
+
+/* Imágenes */
+
+.lugar-imagen {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #160c0f;
+}
+
+.lugar-imagen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(5, 5, 5, 0.65),
+        transparent 55%
+    );
+}
+
+.lugar-imagen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) saturate(0.75);
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.lugar-card:hover .lugar-imagen img {
+    transform: scale(1.06);
+    filter: brightness(0.95) saturate(0.9);
+}
+
+.lugar-numero {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 14px;
+    color: #e8dcc8;
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    font-style: italic;
+}
+
+
+/* Contenido */
+
+.lugar-contenido {
+    padding: 26px 23px 28px;
+}
+
+.lugar-categoria {
+    display: block;
+    margin-bottom: 14px;
+    color: #c9a86a;
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
+    line-height: 1.7;
+}
+
+.lugar-contenido h3 {
+    margin: 0 0 14px;
+    color: #e8dcc8;
+    font-family: "Playfair Display", serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.lugar-descripcion {
+    margin: 0 0 24px;
+    color: #b9ada4;
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+
+/* Recuerdo desplegable */
+
+.lugar-recuerdo {
+    border-top: 1px solid rgba(201, 168, 106, 0.2);
+}
+
+.lugar-recuerdo summary {
+    position: relative;
+    padding: 18px 22px 0 0;
+    color: #c9a86a;
+    font-size: 0.86rem;
+    cursor: pointer;
+    /* Texto final de la sección */
+.lugares-footer {
+    width: 100%;
+    max-width: 900px;
+    margin: 35px auto 0;
+    padding: 0 20px;
+
+    text-align: center;
+    line-height: 1.7;
+    color: #e8dcc8;
+    font-family: "Playfair Display", serif;
+}
+
+/* Separador decorativo */
+.lugares-footer .decoracion {
+    display: block;
+    margin-bottom: 10px;
+    color: #c9a86a;
+    text-align: center;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+    .lugares-footer {
+        margin-top: 30px;
+        font-size: 14px;
+    }
+}
+/* Texto final de la sección */
+.lugares-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 35px auto 0;
+    padding: 0 20px;
+
+    text-align: center;
+    line-height: 1.8;
+
+    color: #e8dcc8;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+}
+
+/* Decoración superior */
+.lugares-footer .decoracion {
+    display: block;
+    margin-bottom: 12px;
+
+    color: #c9a86a;
+    text-align: center;
+}
+
+/* Párrafo */
+.lugares-footer p {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+    .lugares-footer {
+        max-width: 100%;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+}
